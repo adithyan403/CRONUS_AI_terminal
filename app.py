@@ -1,37 +1,26 @@
-# Step 5: The Flask Web Server with .env support
 
-from flask import Flask, render_template, request, jsonify
-from brainpy import PersonalAI
-from dotenv import load_dotenv
+from flask import Flask, send_from_directory, send_file
+import os
 
-# Load environment variables from a .env file
-load_dotenv()
+# Initialize Flask app
+# static_url_path='' ensures files are served from root (e.g. /css/style.css)
+# static_folder='.' sets the current directory as the source for static files
+app = Flask(__name__, static_url_path='', static_folder='.')
 
-# Initialize the Flask app
-app = Flask(__name__)
-
-# Create a single instance of our AI.
-ai = PersonalAI()
-
-# This is the main route. When you go to the website, this function runs.
 @app.route('/')
 def home():
-    # It sends the index.html file to be displayed in the browser.
-    return render_template('index.html')
+    """Serve the main index.html"""
+    return send_file('index.html')
 
-# This route is for handling the messages sent from the webpage.
-@app.route('/ask', methods=['POST'])
-def ask():
-    # Get the user's message from the data sent by the webpage
-    user_message = request.json['message']
-    
-    # Process the message using our AI brain
-    ai_response = ai.process_input(user_message)
-    
-    # Send the AI's response back to the webpage
-    return jsonify({'response': ai_response})
+@app.route('/download')
+def download_zip():
+    """Specific endpoint for downloading the zip (optional, direct link works too)"""
+    try:
+        return send_file('CronusAI_Beta.zip', as_attachment=True)
+    except Exception as e:
+        return str(e), 404
 
-# This makes the app run when you execute the script.
 if __name__ == '__main__':
-    app.run(debug=True)
-
+    # Determine port for local vs production
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cronus AI - Command Your Environment</title>
+    <meta name="description"
+        content="Cronus AI bridge the gap between human intent and OS execution. Control volume, capture displays, manage processes, and optimize your workflow.">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Development Warning Banner -->
+    <div class="dev-banner">
+        <span>⚠ ALPHA BUILD // DEVELOPMENT STAGE // SYSTEM UNSTABLE ⚠</span>
+    </div>
+
+    <!-- Background Video Loop -->
+    <div id="bg-video-container">
+        <video id="bg-video" loop muted playsinline>
+            <source src="assets/intro.mp4" type="video/mp4">
+        </video>
+        <div class="bg-overlay"></div>
+    </div>
+
+    <!-- Intro Video Overlay -->
+    <div id="intro-overlay">
+        <video id="intro-video" playsinline>
+            <source src="assets/intro.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="intro-controls">
+            <button id="start-intro" class="btn-intro glow">INITIALIZE SYSTEM</button>
+            <button id="skip-intro" class="btn-intro weak">SKIP SEQUENCE</button>
+        </div>
+    </div>
+
+    <!-- Main Content (Hidden initially) -->
+    <main id="app-content" class="hidden">
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="logo">
+                <img id="cronus-logo" class="logo-img" alt="Cronus Logo" src="assets/logo.png">
+                <!-- Src set dynamically by JS -->
+                <span class="text">CRONUS AI <span class="badge-alpha">ALPHA</span></span>
+            </div>
+            <div class="nav-links">
+                <a href="#features">FEATURES</a>
+                <a href="#commands">COMMANDS</a>
+                <a href="#setup">SETUP</a>
+            </div>
+            <div class="nav-cta">
+                <a href="#" class="btn-primary-small">DOWNLOAD BETA</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <br>
+
+        <section class="hero">
+            <div class="container">
+                <img id="hero-logo" class="hero-logo-img" alt="Cronus Logo" src="assets/logo.png">
+                <h1 class="hero-title">COMMAND YOUR <br> <span class="highlight-blue">ENVIRONMENT</span></h1>
+                <p class="hero-subtitle">
+                    Cronus AI bridge the gap between human intent and OS execution. <br>
+                    Control volume, capture displays, manage processes, and optimize <br>
+                    your workflow with simple voice or text triggers.
+                </p>
+                <div class="hero-actions">
+                    <button class="btn-primary-large">INITIALIZE CRONUS</button>
+                    <button class="btn-secondary-large">VIEW DOCUMENTATION</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- OS Integration (Features) -->
+        <section id="features" class="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>OS INTEGRATION</h2>
+                    <p class="sub-header-text">STANDARD MODULES INCLUDED</p>
+                </div>
+
+                <div class="feature-grid">
+                    <!-- Audio Synthesis -->
+                    <div class="feature-card">
+                        <div class="card-icon">🔊</div>
+                        <h3>Audio Synthesis</h3>
+                        <p>Granular control over system gain. Mute, duck, or set precise levels across individual
+                            applications.</p>
+                    </div>
+
+                    <!-- Visual Capture -->
+                    <div class="feature-card">
+                        <div class="card-icon">📸</div>
+                        <h3>Visual Capture</h3>
+                        <p>Zero-delay screen captures. Auto-save, OCR text extraction, and direct clipboard routing.</p>
+                    </div>
+
+                    <!-- Process Kill -->
+                    <div class="feature-card">
+                        <div class="card-icon">⚡</div>
+                        <h3>Process Kill</h3>
+                        <p>Instantly terminate non-responsive tasks or launch specific software clusters with one
+                            trigger.</p>
+                    </div>
+
+                    <!-- Neural Monitoring -->
+                    <div class="feature-card">
+                        <div class="card-icon">📊</div>
+                        <h3>Neural Monitoring</h3>
+                        <p>Real-time telemetry for CPU, GPU, and RAM. Automatic optimization when resources hit critical
+                            thresholds.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- The Console -->
+        <section id="commands" class="console-section">
+            <div class="container split-layout">
+                <div class="console-text">
+                    <h2>THE CONSOLE</h2>
+                    <p>Cronus AI isn’t just a voice assistant; it’s a productivity shell. Type or speak commands that
+                        bypass traditional menu navigation.</p>
+
+                    <div class="command-highlight voice">
+                        <div class="cmd-icon">🎤</div>
+                        <div class="cmd-content">
+                            <strong>VOICE TRIGGER</strong>
+                            <p>"Cronus, take a full-screen shot and open Discord."</p>
+                        </div>
+                    </div>
+
+                    <div class="command-highlight terminal">
+                        <div class="cmd-icon">⌨️</div>
+                        <div class="cmd-content">
+                            <strong>QUICK TERMINAL</strong>
+                            <p>> volume 80 | mute chrome</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="console-ui">
+                    <div class="terminal-window">
+                        <div class="window-header">
+                            <div class="window-controls">
+                                <span class="red"></span>
+                                <span class="yellow"></span>
+                                <span class="green"></span>
+                            </div>
+                            <span class="window-title">CRONUS V1.0.0-BETA</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="term-line"><span class="highlight-blue">[SYSTEM INITIALIZED]</span></p>
+                            <p class="term-line">CRONUS: Waiting for input...</p>
+                            <br>
+                            <p class="term-line"><span class="success">SUCCESS:</span> Image saved to</p>
+                            <p class="term-line">C:/Users/Cronus/Pictures/Captures/20260131.png</p>
+                            <br>
+                            <div class="input-line">
+                                <span class="prompt">></span> <span class="cursor">_</span>
+                            </div>
+                        </div>
+                        <div class="terminal-actions">
+                            <button class="term-btn">CAP SCREEN</button>
+                            <button class="term-btn">VOL UP</button>
+                            <button class="term-btn">CLR LOG</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container stats-grid">
+                <div class="stat-item">
+                    <h2 class="stat-number highlight-blue">0.1s</h2>
+                    <p class="stat-label">RESPONSE LATENCY</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="stat-number highlight-blue">12MB</h2>
+                    <p class="stat-label">IDLE RAM FOOTPRINT</p>
+                </div>
+                <div class="stat-item">
+                    <h2 class="stat-number highlight-blue">100%</h2>
+                    <p class="stat-label">LOCAL PROCESSING</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer / CTA -->
+        <section id="setup" class="cta-section">
+            <div class="container">
+                <h2>READY TO SYNC?</h2>
+                <p>Join the elite alpha testing program and redefine how you interact with your Windows environment.</p>
+
+                <form class="signup-form">
+                    <input type="text" placeholder="Enter access code..." class="access-input">
+                    <button type="submit" class="btn-white">REQUEST ALPHA</button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Download Modal -->
+        <div id="download-modal" class="modal-overlay hidden">
+            <div class="modal-content">
+                <button id="close-modal" class="modal-close">&times;</button>
+                <div class="modal-header">
+                    <h2>SYSTEM <span class="highlight-blue">ACQUISITION</span></h2>
+                </div>
+                <div class="modal-body">
+                    <div class="platform-icon">
+                        <svg viewBox="0 0 88 88" fill="none" xmlns="http://www.w3.org/2000/svg" width="64" height="64">
+                            <path
+                                d="M0 12.402L35.2 7.60001V41.6H0V12.402ZM35.2 46.4H0V80.402L35.2 75.6V46.4ZM39.6 6.99999L88 0V41.6H39.6V6.99999ZM88 46.4V88L39.6 81V46.4H88Z"
+                                fill="#00A4EF" />
+                        </svg>
+                        <p>WINDOWS 10/11 (64-BIT)</p>
+                    </div>
+                    <p class="version-text">BUILD_VER: <span class="highlight-blue">1.0.0-ALPHA</span></p>
+
+                    <div class="legal-check">
+                        <label class="checkbox-container">
+                            <input type="checkbox" id="terms-check">
+                            <span class="checkmark"></span>
+                            <span class="terms-text">
+                                I acknowledge this software is in <strong>DEVELOPMENT MODE</strong> and is the exclusive
+                                property of <strong>CRONUS PVT LTD</strong>. Use at your own risk.
+                            </span>
+                        </label>
+                    </div>
+
+                    <a id="confirm-download-btn" href="CronusAI_Beta.zip" download class="btn-primary-large disabled">
+                        AUTHENTICATE & DOWNLOAD
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
