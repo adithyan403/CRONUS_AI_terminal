@@ -20,6 +20,11 @@ def download_zip():
     except Exception as e:
         return str(e), 404
 
+@app.route('/health')
+def health():
+    """Health check endpoint for monitoring"""
+    return {'status': 'healthy', 'version': '1.0.0-ALPHA'}, 200
+
 if __name__ == '__main__':
     # Determine port for local vs production
     port = int(os.environ.get('PORT', 5000))
